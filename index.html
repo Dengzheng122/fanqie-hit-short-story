@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>番茄短篇爆款生成器 · 部署站</title>
+<style>
+  :root{--paper:#f5f0e2;--card:#fffdf4;--ink:#2a251b;--muted:#8a7c62;--line:#e2d6b8;--cinnabar:#bf3f22;--teal:#33555a;--gold:#a8842f}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.75}
+  body::before{content:"";display:block;height:6px;background:linear-gradient(90deg,var(--cinnabar) 0 33%,var(--teal) 33% 66%,var(--gold) 66% 100%)}
+  .wrap{max-width:760px;margin:0 auto;padding:24px 18px 60px}
+  h1{font-family:"Songti SC","Noto Serif SC",serif;font-size:30px;letter-spacing:2px;margin:8px 0 4px}
+  .sub{color:var(--muted);font-size:14px;margin:4px 0}
+  h2{font-family:"Songti SC","Noto Serif SC",serif;font-size:20px;margin:32px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin-bottom:12px}
+  .card p{margin:6px 0;font-size:15px}
+  a{color:var(--teal)}
+  .note{font-size:13px;color:var(--muted)}
+  .tip{background:#f4ecd0;border-radius:10px;padding:12px 16px;font-size:14px;color:#6b5320}
+  ol,ul{padding-left:22px}
+  li{margin:6px 0;font-size:15px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>番茄短篇爆款生成器</h1>
+  <p class="sub">原仓库 <a href="https://github.com/tianyayu6/fanqie-hit-short-story" target="_blank" rel="noopener">tianyayu6/fanqie-hit-short-story</a> · 一个 Agent Skill（给 AI 助手用的技能说明）</p>
+  <p>给一个核心梗，扩成番茄风格短篇：大纲、标题导语、12000 字以上正文、编辑审稿重写、去 AI 味一句一行终稿。</p>
+
+  <h2>工作流（6 步）</h2>
+  <div class="card">
+    <ol>
+      <li><b>核心梗拆解</b>：补全类型、情绪主轴（只能定一个主轴，最多加一个副轴）、主人公（身份落差 / 欲望 / 底线 / 主动选择）、对手（关系越近越好）、爆点装置（重生、替嫁、协议婚姻、系统、错认、公开处刑等）。</li>
+      <li><b>爆款大纲</b>：8–10 章，默认 10 章。每章含章名、本章目标字数、核心事件、情绪价值、反转或钩子、结尾悬念。节奏：开篇事故或羞辱 → 第一次反击 → 关系升级 → 真相裂缝 → 主角低谷 → 布局反杀 → 公开对峙 → 最大反转 → 关系清算 → 余味收束。</li>
+      <li><b>标题和导语</b>：先给 10 个标题候选选 1 个；再写 3 版导语候选选 1 版（3–5 段，强钩子 + 核心冲突 + 人设亮点，不写背景说明书）。</li>
+      <li><b>正文初稿</b>：每章约 1000–1200 字，全文不少于 12000 字。每章开头 3–5 句必须进入冲突或异常信息；每 600–800 字至少换一个场景动作、对话压力或信息反转。</li>
+      <li><b>短篇编辑审稿</b>：看开篇 100 字是否抓人、核心梗是否兑现、主角是否主动、爽点是否密集、反派压迫是否具体、逻辑是否顺、有无 AI 味。给出修改策略后重写全文，不只局部修补。</li>
+      <li><b>去 AI 味终稿</b>：删空洞比喻、抽象感慨、泛化金句；用具体动作、对话、物件和场景细节替代解释性心理描写；最终一句一行输出全文。</li>
+    </ol>
+  </div>
+
+  <h2>硬约束（原文）</h2>
+  <div class="card">
+    <ul>
+      <li>必须原创，不得复刻、洗稿、续写、替换人名改写任何已有作品。</li>
+      <li>正文必须完整输出，不得用“略”“此处省略”“后续继续”等占位。</li>
+      <li>每章要有明确事件推进：冲突、选择、反转、爽点或痛点，不能只写心理独白。</li>
+      <li>标题和导语必须直给卖点，避免文艺化、谜语化。</li>
+      <li>若三者冲突（8–10 章 / 每章 1000–1200 字 / 全文 ≥12000 字），优先保证全文不少于 12000 字。</li>
+    </ul>
+  </div>
+
+  <div class="tip">运行前提：这是一个 Skill，不是独立程序。需在能执行 Skill 的 AI 助手里使用；也可以把 SKILL.md 的流程贴给豆包、Kimi 等对话工具，分步执行。写大纲或正文前先读 references/methodology.md；审稿、重写、去 AI 味前先读 references/editorial-and-deai.md。</div>
+
+  <h2>文件</h2>
+  <div class="card">
+    <p><a href="README.md">README.md</a> · <a href="SKILL.md">SKILL.md</a> · <a href="agents/openai.yaml">agents/openai.yaml</a></p>
+    <p><a href="references/methodology.md">references/methodology.md</a> · <a href="references/editorial-and-deai.md">references/editorial-and-deai.md</a> · <a href="references/source-notes.md">references/source-notes.md</a></p>
+    <p class="note">以上为原仓库文件的部署镜像，最新版以原仓库为准。</p>
+  </div>
+
+  <p style="text-align:center;margin-top:36px"><a href="https://dengzheng122.github.io/zhifu-home/">← 返回智富研究所主页</a></p>
+</div>
+</body>
+</html>

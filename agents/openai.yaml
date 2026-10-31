@@ -1,0 +1,4 @@
+interface:
+  display_name: "番茄爆款短篇"
+  short_description: "按番茄爆款方法论生成、审稿、重写并润色完整短篇小说。"
+  default_prompt: "Use $fanqie-hit-short-story to turn this core hook into a 12,000+字番茄爆款短篇小说。"
